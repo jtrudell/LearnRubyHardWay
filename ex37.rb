@@ -1,13 +1,8 @@
+puts "hi what's your name?"
+name = gets.chomp.downcase
 
-
-puts "Enter a number:"
-number = gets.chomp.to_i
-
-def multiply(x)
-	puts x * x
+if not name == "bob"
+	puts "Hi!"
+else puts "Bye!"
 end
 
-multiply(number)
-
-BEGIN {puts "HI!"}
-END {puts "BYE!"}
