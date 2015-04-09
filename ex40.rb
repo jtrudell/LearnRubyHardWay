@@ -25,3 +25,7 @@ while true
 	# this line is the most important ever! study!
 	puts cities[:find].call(cities, state)
 end
+
+cities.each do |key, value|
+	puts "#{value}, #{key}"
+end
