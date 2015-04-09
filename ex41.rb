@@ -3,11 +3,11 @@ def prompt()
 end
 
 def death()
-	quips = ["You died. YOu kind suck at this.", 
+	quips = ["You died. You kind suck at this.", 
 	  "Nice job, you died...jackass.",
-	  "Such a luser.",
+	  "Such a loser.",
 	  "I have a small puppy that's better at this."]
-	 puts quips[ran(quips.length())]
+	 puts quips[rand(quips.length())]
 	Process.exit(1)
 end
 
@@ -75,7 +75,7 @@ def laser_weapon_armory()
 	while guess != code and guesses < 10
 		puts "BZZZZEDDD!"
 		guesses += 1
-		print "[keypad] >"
+		print "[keypad] > "
 		guess = gets.chomp()
 	end
 
