@@ -72,8 +72,11 @@ def laser_weapon_armory()
 	guess = gets.chomp()
 	guesses = 0
 
-	while guess != code and guesses < 10
+	while guess != code and guesses < 9
 		puts "BZZZZEDDD!"
+		if guesses == 8
+			puts "You only have one guess left. Hint: the last two digits of the code are " + code[1,2]
+		end
 		guesses += 1
 		print "[keypad] > "
 		guess = gets.chomp()
@@ -135,7 +138,7 @@ def escape_pod()
 	puts "hardly any Gothons are on the ship, so your run is clear of"
 	puts "interference. You get to the chamber with the escape pods, and"
 	puts "now need to pick one to take. Some of them could be damaged"
-	ptus "but you don't have time to look. There's 5 pods, which one"
+	puts "but you don't have time to look. There's 5 pods, which one"
 	puts "do you take?"
 
 	good_pod = rand(5)+1
@@ -160,20 +163,22 @@ def escape_pod()
 end
 
 ROOMS = {
-	:dead => method(:death),
+	:death => method(:death),
 	:central_corridor => method(:central_corridor),
 	:laser_weapon_armory => method(:laser_weapon_armory),
 	:the_bridge => method(:the_bridge),
 	:escape_pod => method(:escape_pod)
 }
 
-def runner(map, start)
-	next_one = start
+
+
+def runner(map, start) #ROOMS, :central_corridor
+	next_one = start #:central_corridor
 
 	while true
-		room = map[next_one]
+		room = map[next_one] #room = ROOMS[:central_corridor] -- method central_corridor
 		puts "\n---------"
-		next_one = room.call()
+		next_one = room.call #next_one = call room, which = ROOMS[next_one], which call one of the methods in the ROOM hash (usually :death), but how?
 	end
 end
 
